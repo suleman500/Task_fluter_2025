@@ -11,6 +11,7 @@ class Myhome extends StatefulWidget {
 
 class _MyhomeState extends State<Myhome> {
   int indix = 0;
+  int scor = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -86,32 +87,95 @@ class _MyhomeState extends State<Myhome> {
         ],
       ),
     ];
+    int netScor = quion.length * 5;
+    bool endFquiz = scor == netScor;
 
     return Scaffold(
-      body: Column(
-        children: [
-          Text(quion[indix].qusion9,style: TextStyle(fontSize: 30),),
-
-          Column(
-            children:
-                quion[indix].listOf
-                    .map(
-                      (e) => AnserButn(
-                        sfdss: e,
-                        incremnt: () {
+      appBar: AppBar(
+        title: Text("Quez App"),
+        backgroundColor: Colors.purple,
+        centerTitle: true,
+      ),
+      backgroundColor: Color(0xCD54009a),
+      body: Center(
+        child: endFquiz
+            ? Card(
+                child: Container(
+                  width: MediaQuery.of(context).size.width*0.7,
+                  height: MediaQuery.of(context).size.height*0.5,
+                  child: Column(
+                    children: [
+                      Icon(Icons.access_time_sharp),
+                      Text("End"),
+                      Text(
+                        "Your scor :${scor}",
+                        style: TextStyle(color: Color(0xCDccde10)),
+                      ),
+                      SizedBox(height: 80),
+                      TextButton(
+                        onPressed: () {
                           setState(() {
-                            if (indix != quion.length - 1) {
-                              indix++;
-                            } else {
-                              indix--;
-                            }
+                            scor = 0;
+                            indix = 0;
                           });
                         },
+                        child: Text(
+                          "Reset quiz",
+                          style: TextStyle(color: Colors.blueAccent),
+                        ),
                       ),
-                    )
-                    .toList(),
-          ),
-        ],
+Text("Fainal Qusions"),
+Icon(Icons.question_mark)
+
+                    ],
+                  ),
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  children: [
+                    Text(quion[indix].qusion9, style: TextStyle(fontSize: 30)),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                        children: quion[indix]
+                            .listOf
+                            .map(
+                              (e) => AnserButn(
+                                sfdss: e,
+                                incremnt: () {
+                                  setState(() {
+                                    if (indix != quion.length - 1) {
+                                      indix++;
+                                      //scor++;
+                                    }
+                                    //else {
+                                    // indix--;
+                                    // }
+                                  });
+                                },
+                                scorss: () => setState(() {
+                                  if (scor != netScor) {
+                                    scor += 5;
+                                  }
+                                }),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        "Scor:$scor",
+                        style: TextStyle(
+                            fontSize: 50, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
       ),
     );
   }
