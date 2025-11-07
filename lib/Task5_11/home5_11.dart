@@ -5,7 +5,9 @@ class Home5_11 extends StatefulWidget {
   @override
   State<Home5_11> createState() => _Home5_11State();
 }
-// متغير عشان الازرار و بقرر اعدل  عليها الارقامم 
+// متغير عشان الازرا 
+// تنشاش بقدر اعدل على المودل وhydv بدال قيم bool  اخليهم  int 
+
 bool t = false;
 
 class _Home5_11State extends State<Home5_11> {
