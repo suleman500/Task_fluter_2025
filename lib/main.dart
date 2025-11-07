@@ -3,6 +3,7 @@ import 'package:flutter_application_1/MyAppTask1-11/homTask1-11.dart';
 import 'package:flutter_application_1/Task5_11/home5_11.dart';
 import 'package:flutter_application_1/bitaMy/My_homebita.dart';
 import 'package:flutter_application_1/quezApp/home.dart';
+import 'package:flutter_application_1/tisetViwe/tist.dart';
 
 
 

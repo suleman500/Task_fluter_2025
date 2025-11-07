@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Task5_11/model_5_11/Model_Icon&Text.dart';
 
+class Home5_11 extends StatefulWidget {
+  @override
+  State<Home5_11> createState() => _Home5_11State();
+}
+// متغير عشان الازرار و بقرر اعدل  عليها الارقامم 
+bool t = false;
 
-class Home5_11 extends StatelessWidget {
+class _Home5_11State extends State<Home5_11> {
   @override
   Widget build(BuildContext context) {
     List<Color> ss = [
@@ -13,7 +19,7 @@ class Home5_11 extends StatelessWidget {
     ];
 
     List<Applicaion> app = [
-      Applicaion(cons: Icons.home, name: "HOME"),
+      Applicaion(cons: Icons.home, name: "HOME", acion: false),
       Applicaion(cons: Icons.contact_mail_outlined, name: "Contact"),
       Applicaion(cons: Icons.map, name: "Map"),
       Applicaion(cons: Icons.phone, name: "Phone"),
@@ -24,24 +30,30 @@ class Home5_11 extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: Text("GridView"),centerTitle: true,
-      backgroundColor: Colors.blueGrey,),
+      appBar: AppBar(
+        title: Text("GridView"),
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey,
+      ),
 
       body: Padding(
-
         padding: const EdgeInsets.all(10.0),
-        child: GridView.builder(
-          
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-          ),
-          itemCount: app.length,
-          itemBuilder: (context, index) {
-            return bbt(context, app[index]);
-          },
-        ),
+        child:
+        //هون الشرط و t fuls . و رح يدخل على قريدفيوو بس اضغط على الهوم رح يوديني على الصفحه 
+            t
+                ? home(context)
+                
+                : GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
+                  itemCount: app.length,
+                  itemBuilder: (context, index) {
+                    return elV(context, app[index]);
+                  },
+                ),
       ),
     );
   }
@@ -69,11 +81,43 @@ class Home5_11 extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.1,
 
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: () {
+
+if (l.acion == t) {
+            setState(() {
+              print("yasss");
+              t = true;
+            });
+          }
+
+        },
         icon: Icon(l.cons),
 
         label: Text(l.name),
+        
       ),
+    );
+  }
+//هون اعملت صفحه اذا ضغط  على   الهوم رح ينقلني على  هاي 
+  Widget home(BuildContext v) {
+    return Container(
+child: Center(
+  child: Column(children: [
+  
+   Text("welcom Home : "),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            t = false;
+                          });
+                        },
+                        child: Text("Bake"),
+                      ),
+  
+  
+  ],),
+),
+
     );
   }
 }
