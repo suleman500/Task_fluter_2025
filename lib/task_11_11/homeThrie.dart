@@ -43,6 +43,7 @@ IconButton(onPressed: () {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  //  هاي الروه عششان معلومات الحاس المتابعيت و الخ
                   Row(
                     children: [
                       //  عشان اي فيه عرض متح يقصدر يضيفها
@@ -104,7 +105,7 @@ child: Text("data"),
       ),
     );
   }
-
+// وهن عشان اطبعها 3 مرات  gridview
   Widget foman() {
     return Container(
       
@@ -114,9 +115,9 @@ child: Text("data"),
           Expanded(
             child: ListTile(
               
-              title: Text("data"),
-              subtitle: Text("ddd"),
-              
+              title: Text("Level"),
+              subtitle: Text("10"),
+              // شلت ال  icon وحطيتها برا عشان تيجي ع اليمين 
             ),
 
           ),
