@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Mieet_11_12/homMeet.dart';
+import 'package:flutter_application_1/Mieet_11_12/homeMieet.dart';
 import 'package:flutter_application_1/MyAppTask1-11/homTask1-11.dart';
+import 'package:flutter_application_1/Navigation/Scrrin1.dart';
+import 'package:flutter_application_1/Navigation/Scrrin2.dart';
+import 'package:flutter_application_1/Navigation/homNavi.dart';
+import 'package:flutter_application_1/Task11_15/home_15_11.dart';
 import 'package:flutter_application_1/Task5_11/home5_11.dart';
 import 'package:flutter_application_1/TaskStak/homeTaSt.dart';
 import 'package:flutter_application_1/bitaMy/My_homebita.dart';
+import 'package:flutter_application_1/mineGamse/gamesXandO.dart';
 import 'package:flutter_application_1/quezApp/home.dart';
 import 'package:flutter_application_1/task_11_11/home.dart';
 import 'package:flutter_application_1/task_11_11/homeThrie.dart';
@@ -26,8 +33,8 @@ class MyAppState extends StatefulWidget {
 class _MyAppStateState extends State<MyAppState> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home:  Homethrie  (),debugShowCheckedModeBanner: false,
-    
+    return MaterialApp(home:  Home1511(),debugShowCheckedModeBanner: false,
+   
     );
   }
 }
