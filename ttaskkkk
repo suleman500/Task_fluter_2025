@@ -1,0 +1,255 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter_app/taskk_1511/stayl.dart';
+
+import 'CostmTextFormal.dart';
+
+class Home1511 extends StatefulWidget {
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  State<Home1511> createState() => _Home1511State();
+}
+
+class _Home1511State extends State<Home1511> {
+  @override
+
+  Widget build(BuildContext context) {
+      final _formKey = GlobalKey<FormState>();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(" My App"),
+        centerTitle: true,
+        backgroundColor: appBar,
+      ),
+
+      backgroundColor: bOOdy,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            
+            child: Form(
+          key: _formKey,
+              child: Column(
+                children: [
+                
+Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: Textformfildcosto(label1: "Email.com",enBorderColer: Colors.amberAccent,foBorder: Colors.purpleAccent,hint: "Email@gmail.com",icon: Icons.email_outlined,suff: Icons.email,),
+),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Textformfildcosto(label1: "Email.com",enBorderColer: Colors.amberAccent,foBorder: Colors.purpleAccent,hint: "paswoord",icon: Icons.password,suff: Icons.password_sharp,),
+          ),       
+
+                  SizedBox(height: 20),
+
+                 
+Container(
+
+child: ElevatedButton(onPressed: () {
+    Navigator.of(context).pushReplacementNamed('Scrin1');
+  
+}, child: Text("Login")),
+
+),
+
+
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//                                           000000000000000000000000000000000000000000000000000000000
+
+
+
+
+import 'package:flutter/material.dart';
+
+class Scrin1 extends StatefulWidget{
+
+
+  @override
+  State<Scrin1> createState() => _Scrin1State();
+}
+
+class _Scrin1State extends State<Scrin1> {
+@override 
+Widget build( BuildContext context){
+return Scaffold(
+appBar:  AppBar(title: Text("Welcomm"),centerTitle: true),
+
+body: SafeArea(
+child: sss(context,
+),
+
+),
+
+
+);
+
+
+}
+
+
+Widget sss(BuildContext context,){
+return ListView.custom(
+
+childrenDelegate: SliverChildBuilderDelegate((context, index) {
+ prson prs = eddd[index];
+
+
+  return ListTile(
+          title: Text(prs.name),
+          subtitle: Text(prs.email),
+          trailing: ElevatedButton.icon(
+            icon: Icon(Icons.arrow_back),
+            label: Text("back"),
+            onPressed: () {
+              
+              Navigator.of(context).pushReplacementNamed('Home1511');
+            },
+          ),
+        );
+      },
+      childCount: eddd.length,
+    ),
+  );
+
+
+}
+
+
+
+}
+
+
+
+class prson {
+
+String name;
+String email;
+IconData iconss = Icons.arrow_back ;
+prson({required this.name,required this.email});
+
+
+
+}
+
+
+  List<prson>eddd= [
+
+prson(name: "sss",email: "dsaaa"),
+prson(name: "sss",email: "dsaaa"),
+prson(name: "sss",email: "dsaaa"),
+
+];
+
+
+
+
+//000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
+
+class Textformfildcosto extends StatelessWidget {
+  String label1;
+  String hint;
+  IconData icon;
+  IconData suff;
+  Color enBorderColer;
+  Color foBorder;
+
+  Textformfildcosto({
+    required this.label1,
+    required this.hint,
+    required this.icon,
+    required this.suff,
+    required this.enBorderColer,
+    required this.foBorder,
+    
+  });
+
+  final _fontJe=GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      
+
+      decoration: InputDecoration(
+        label: Text(label1),
+        helperText: hint,
+        prefixIcon: Icon(icon),
+        suffixIcon: Icon(suff),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: enBorderColer),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: foBorder),
+          
+        ),
+      ),
+    );
+  }
+
+
+
+}
+
+
+class ss extends StatelessWidget{
+
+@override
+
+Widget build(BuildContext){
+
+return TextFormField(
+decoration: InputDecoration(
+
+
+label: Text("gmail.com"),
+helperText: "dddd",
+prefixIcon: Icon(Icons.email),
+suffix:  Icon(Icons.password),
+
+
+
+),
+
+
+
+
+);
+
+
+}
+
+
+}
+//0000000000000000000000000000000
+
+
+
+
+
+Home1511(),
+routes: {
+'Home1511':(context)=>Home1511(),
+'Scrin1':(context) => Scrin1(),
+
+},
